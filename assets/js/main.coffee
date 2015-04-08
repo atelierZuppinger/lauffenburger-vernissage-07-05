@@ -1,5 +1,6 @@
 zeptoBrowserify = require 'zepto-browserify'
 $ = zeptoBrowserify.$
+Cookies = require('./cookie.js')
 
 $ () ->
   $('.rsvp')
@@ -18,14 +19,16 @@ displayForm = () ->
 hideForm = () ->
   $('body').removeClass 'displayForm'
 attend = () ->
-  $.ajax({
-    url: "//formspree.io/yassin@atelier-zuppinger.ch",
-    type: "POST"
-    data: 
-      _subject: 'Confirmation d\'inscription'
-      message: "Nouvelle inscription au vernissage du 7 mai"
-    dataType: "json"
-    success: () ->
-      showThanksMessage()
-      hideForm
-  })
+  if !Cookies('sent')
+    $.ajax({
+      url: "//formspree.io/yassin@atelier-zuppinger.ch",
+      type: "POST"
+      data: 
+        _subject: 'Confirmation d\'inscription'
+        message: "Nouvelle inscription au vernissage du 7 mai"
+      dataType: "json"
+      success: () ->
+        hideForm
+        Cookies('sent', true)
+    })
+  
