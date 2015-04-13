@@ -131,11 +131,6 @@ body
   text-align center
   opacity 0
   transition opacity 1s ease
-  h1 
-    top 50%
-    position absolute
-    width 100%
-    margin-top -10px
   .close
     position absolute
     top 5%
@@ -152,14 +147,28 @@ body
     width 400px
     left 50%
     margin-left -200px
-    height 300px
-    top 50%
-    margin-top -150px
+    height 360px
+    top 40%
+    margin-top -180px
+    h1
+      position relative
+      margin-bottom 20px
+      &:after
+        content ''
+        position absolute
+        display block
+        width 20%
+        height 3px
+        background brown
+        bottom -10px
+        left 40%
     .row
       position relative
       float left
       width 100%
       margin-bottom 5px
+      &.margin2
+        margin-bottom 10px
       .col
         position relative
         float left
@@ -181,6 +190,8 @@ body
       color white
       border 0
       text-transform uppercase
+      &:hover
+        background alpha(brown, 50%)
 .displayForm
   #left, #right
     transition all 1s ease

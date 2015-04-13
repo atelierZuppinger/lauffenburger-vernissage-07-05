@@ -2,6 +2,7 @@
 #$ = zeptoBrowserify.$
 $ = require 'jquery-browserify'
 Cookies = require 'cookies-js'
+serialize = require 'form-serialize'
 
 $ () ->
   $('.rsvp')
@@ -12,26 +13,29 @@ $ () ->
     .on 'click', displayForm
   $('.close')
     .on('click', hideForm)
+  $('form').submit (event) ->
+    event.preventDefault()
+    attend(event.target)
 
 displayForm = () -> 
   $('body').addClass 'displayForm'
   $('#left button, #right button').addClass('clicked')
-  attend()
+  
 hideForm = () ->
   $('body').removeClass 'displayForm'
-attend = () ->
-  if !Cookies('sent')
-    console.log 'test'
-    #$.ajax({
-    #  url: "//formspree.io/yassin@atelier-zuppinger.ch",
-    #  type: "POST"
-    #  data: 
-    #    _subject: 'Confirmation d\'inscription'
-    #    message: "Nouvelle inscription au vernissage du 7 mai"
-    #  dataType: "json"
-    #  success: () ->
-    #    hideForm
-    #    Cookies('sent', true)
-    #})
-  else
-    console.log('is allready attending')
+attend = (form) ->
+  #if !Cookies('sent')
+    console.log 'Envoi'
+    datas = serialize(form, { hash: true})
+    datas._subject = 'Réponse à l\'invitation'
+    $.ajax({
+      url: "//formspree.io/yassin@atelier-zuppinger.ch",
+      type: "POST"
+      data: datas
+      dataType: "json"
+      success: () ->
+        hideForm()
+        Cookies('sent', true)
+    })
+  #else
+  #  console.log('is allready attending')

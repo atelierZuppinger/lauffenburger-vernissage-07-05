@@ -5,11 +5,14 @@ block content
     button.close +
     form
       .row
+        .col
+          h1 Vernissage du jeudi 7 mai
+      .row.margin2
         .col.col-1_2
-          input#viendra(type='radio', name='rsvp')
+          input#viendra(type='radio', name='participera', value='oui', required)
           label(for='viendra') Je viendrai
         .col.col-1_2
-          input#viendrapas(type='radio', name='rsvp')
+          input#viendrapas(type='radio', name='participera', value='non')
           label(for='viendrapas') Je ne viendrai pas
       .row
         .col
@@ -19,7 +22,7 @@ block content
           input(type='text', name='nom', placeholder='Nom')
       .row
         .col
-          input(type='email', name='email', placeholder='email')
+          input(type='email', name='email', placeholder='email', required)
       .row
         .col
           textarea(name='message', placeholder='Communications')

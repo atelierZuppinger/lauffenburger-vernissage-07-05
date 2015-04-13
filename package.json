@@ -10,6 +10,7 @@
     "coffeeify": "^1.0.0",
     "cookies-js": "^1.2.1",
     "css-pipeline": "0.2.x",
+    "form-serialize": "^0.6.0",
     "jade": "1.x",
     "jquery-browserify": "^1.8.1",
     "js-pipeline": "0.2.x",
