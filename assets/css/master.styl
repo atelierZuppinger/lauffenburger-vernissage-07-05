@@ -1,4 +1,5 @@
 @import '_settings'
+@import '_avzCSStools'
 
 blue = rgb(0,73,90)
 green = rgb(77,110,105)
@@ -12,6 +13,9 @@ demi = 'ITCFranklinGothicW01-Dm_812668'
 normalize-css()
 base()
 rupture()
+
++style-placeholder()
+  color alpha(black,50%)
 
 h1,h2,h3
   margin 0
@@ -143,6 +147,40 @@ body
     font-size 67px
     transform rotate(45deg)
     line-height 47px
+  form
+    position absolute
+    width 400px
+    left 50%
+    margin-left -200px
+    height 300px
+    top 50%
+    margin-top -150px
+    .row
+      position relative
+      float left
+      width 100%
+      margin-bottom 5px
+      .col
+        position relative
+        float left
+        width 100%
+        &.col-1_2
+          width 50%
+          text-align center
+    input[type='email'], input[type='text'], textarea
+      width 100%
+      border 0
+      background lighten(brown, 95%)
+      box-sizing border-box
+      padding 4px
+      color black
+    textarea
+      min-height 150px
+    input[type=submit]
+      background brown
+      color white
+      border 0
+      text-transform uppercase
 .displayForm
   #left, #right
     transition all 1s ease

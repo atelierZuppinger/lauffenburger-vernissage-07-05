@@ -1,6 +1,7 @@
-zeptoBrowserify = require 'zepto-browserify'
-$ = zeptoBrowserify.$
-Cookies = require('./cookie.js')
+#zeptoBrowserify = require 'zepto-browserify'
+#$ = zeptoBrowserify.$
+$ = require 'jquery-browserify'
+Cookies = require 'cookies-js'
 
 $ () ->
   $('.rsvp')
@@ -20,15 +21,17 @@ hideForm = () ->
   $('body').removeClass 'displayForm'
 attend = () ->
   if !Cookies('sent')
-    $.ajax({
-      url: "//formspree.io/yassin@atelier-zuppinger.ch",
-      type: "POST"
-      data: 
-        _subject: 'Confirmation d\'inscription'
-        message: "Nouvelle inscription au vernissage du 7 mai"
-      dataType: "json"
-      success: () ->
-        hideForm
-        Cookies('sent', true)
-    })
-  
+    console.log 'test'
+    #$.ajax({
+    #  url: "//formspree.io/yassin@atelier-zuppinger.ch",
+    #  type: "POST"
+    #  data: 
+    #    _subject: 'Confirmation d\'inscription'
+    #    message: "Nouvelle inscription au vernissage du 7 mai"
+    #  dataType: "json"
+    #  success: () ->
+    #    hideForm
+    #    Cookies('sent', true)
+    #})
+  else
+    console.log('is allready attending')

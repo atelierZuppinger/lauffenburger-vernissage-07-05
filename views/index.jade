@@ -3,7 +3,29 @@ extends layout
 block content
   #center
     button.close +
-    h1 Merci d'avoir répondu à l'invitation
+    form
+      .row
+        .col.col-1_2
+          input#viendra(type='radio', name='rsvp')
+          label(for='viendra') Je viendrai
+        .col.col-1_2
+          input#viendrapas(type='radio', name='rsvp')
+          label(for='viendrapas') Je ne viendrai pas
+      .row
+        .col
+          input(type='text', name='prenom', placeholder='Prénom')
+      .row
+        .col
+          input(type='text', name='nom', placeholder='Nom')
+      .row
+        .col
+          input(type='email', name='email', placeholder='email')
+      .row
+        .col
+          textarea(name='message', placeholder='Communications')
+      .row
+        .col
+          input(type='submit', value='Envoyer')
   
   #left
     h2 
@@ -12,9 +34,7 @@ block content
       | Bove
     h3 Peinture
     .step0
-      button.rsvp Je vie
-    .step1
-      p Merci d'avoir répondu à l'invitation
+      button.rsvp RS
 
   #right
     h2
@@ -23,9 +43,7 @@ block content
       | Lauffenburger
     h3 Photographie
     .step0
-      button.rsvp ndrai
-    .step1
-      p Merci d'avoir répondu à l'invitation
+      button.rsvp VP
   #bottom
     h1 Exposition JEUDI 7 AU SAMEDI 16 MAi 2015 
     h2 7 RUE DU PONT-NEUF, 1227 CAROUGE – ENTRéE PAR LA COUR, HORAIRES 18:00 - 20:00
