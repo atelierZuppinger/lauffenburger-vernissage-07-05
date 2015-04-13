@@ -23,6 +23,7 @@ displayForm = () ->
   
 hideForm = () ->
   $('body').removeClass 'displayForm'
+  $('body').addClass 'thanks'
 attend = (form) ->
   #if !Cookies('sent')
     console.log 'Envoi'

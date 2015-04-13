@@ -34,6 +34,8 @@ body
     pointer-events none
   .step1
     display none
+    font-family demi
+
 #left, #right
   width 50%
   top 0
@@ -80,9 +82,16 @@ body
     &.clicked
       opacity 0
   .step1
-    word-wrap none
-    white-space none
-    font-size 29px
+    font-size 70px
+    line-height 110px
+    width 90px
+    height 90px
+    font-family sans-serif
+    background alpha(brown, 30%)
+    //border 3px solid white
+    border-left 0
+    border-right 0
+    text-align center
 #left
   left 0
   color brown
@@ -93,7 +102,10 @@ body
     padding-right 0
     border-right 0
   .step1
-    right -200px
+    //color black
+    //border-color black
+    right -45px
+  
 #right
   right 0
   color white
@@ -103,7 +115,8 @@ body
     left 0
     border-left 0
   .step1
-    left -200px
+    left -45px
+  
 #bottom
   position fixed
   bottom 5%
