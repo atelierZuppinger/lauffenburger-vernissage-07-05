@@ -4,6 +4,9 @@ $ = require 'jquery-browserify'
 Cookies = require 'cookies-js'
 serialize = require 'form-serialize'
 
+adress = 'info@lauffenburger-photogallery.ch'
+#adress = 'yassin@atelier-zuppinger.ch'
+
 $ () ->
   $('.rsvp')
     .on 'mouseover', () ->
@@ -25,12 +28,12 @@ hideForm = () ->
   $('body').removeClass 'displayForm'
   $('body').addClass 'thanks'
 attend = (form) ->
-  #if !Cookies('sent')
-    console.log 'Envoi'
+  if !Cookies('sent')
+    #console.log 'Envoi'
     datas = serialize(form, { hash: true})
     datas._subject = 'Réponse à l\'invitation'
     $.ajax({
-      url: "//formspree.io/yassin@atelier-zuppinger.ch",
+      url: "//formspree.io/" + adress,
       type: "POST"
       data: datas
       dataType: "json"
@@ -38,5 +41,6 @@ attend = (form) ->
         hideForm()
         Cookies('sent', true)
     })
-  #else
-  #  console.log('is allready attending')
+  else
+    alert 'Vous avez déjà répondu'
+    hideForm()
