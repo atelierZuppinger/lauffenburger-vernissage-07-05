@@ -13,8 +13,10 @@
     "form-serialize": "^0.6.0",
     "jade": "1.x",
     "jquery-browserify": "^1.8.1",
+    "jquery-form-serializer": "^1.1.0",
     "js-pipeline": "0.2.x",
     "marked": "0.3.x",
+    "placeholder": "^1.0.2",
     "roots": "^3.0.2",
     "roots-browserify": "^0.3.2",
     "rupture": "0.6.x",
@@ -22,6 +24,9 @@
     "zepto-browserify": "^1.1.6-1"
   },
   "browserify-shim": {
-    "jquery": "$"
+    "jquery": "$",
+    "jquery-form-serializer": {
+      "depends": "$"
+    }
   }
 }

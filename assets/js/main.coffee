@@ -23,6 +23,8 @@ $ () ->
       if datas
         attend(datas)
         event.preventDefault()
+  
+  new Placeholder()
 
 displayForm = () -> 
   $('body').addClass 'displayForm'
