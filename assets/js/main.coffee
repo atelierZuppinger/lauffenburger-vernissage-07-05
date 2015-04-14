@@ -24,8 +24,6 @@ $ () ->
         attend(datas)
         event.preventDefault()
   
-  new Placeholder()
-
 displayForm = () -> 
   $('body').addClass 'displayForm'
   $('#left button, #right button').addClass('clicked')
@@ -43,6 +41,7 @@ attend = (datas) ->
     $.ajax({
       url: "//formspree.io/" + adress,
       method: "POST"
+      type: "POST"
       data: datas
       dataType: "json"
       success: () ->

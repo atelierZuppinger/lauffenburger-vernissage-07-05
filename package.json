@@ -16,7 +16,6 @@
     "jquery-form-serializer": "^1.1.0",
     "js-pipeline": "0.2.x",
     "marked": "0.3.x",
-    "placeholder": "^1.0.2",
     "roots": "^3.0.2",
     "roots-browserify": "^0.3.2",
     "rupture": "0.6.x",
