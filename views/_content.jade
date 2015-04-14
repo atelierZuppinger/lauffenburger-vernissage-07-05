@@ -1,0 +1,58 @@
+#center
+    button.close +
+    // form(action='//formspree.io/info@lauffenburger-photogallery.ch', method='POST')
+    form(action='//formspree.io/yassin@atelier-zuppinger.ch', method='POST')
+      input(type="hidden", name="_subject", value="Réponse à l\'invitation")
+      input(type="hidden", name="_next", value="/thanks.html")
+      .row
+        .col
+          h1 Vernissage du jeudi 7 mai
+      .row.margin2
+        .col.col-1_2
+          input#viendra(type='radio', name='participera', value='oui', required)
+          label(for='viendra') Je viendrai
+        .col.col-1_2
+          input#viendrapas(type='radio', name='participera', value='non')
+          label(for='viendrapas') Je ne viendrai pas
+      .row
+        .col
+          input(type='text', name='prenom', placeholder='Prénom')
+      .row
+        .col
+          input(type='text', name='nom', placeholder='Nom')
+      .row
+        .col
+          input(type='email', name='email', placeholder='email', required)
+      .row
+        .col
+          textarea(name='message', placeholder='Communications')
+      .row
+        .col
+          input(type='submit', value='Envoyer')
+  
+  #left
+    h2 
+      | Guy 
+      br
+      | Bove
+    h3 Peinture
+    .step0
+      button.rsvp RS
+    .step1
+      span √
+
+  #right
+    h2
+      | Christophe 
+      br
+      | Lauffenburger
+    h3 Photographie
+    .step0
+      button.rsvp VP
+    .step1
+      span √
+  #bottom
+    h1 Exposition JEUDI 7 AU SAMEDI 16 MAi 2015 
+    h2 7 RUE DU PONT-NEUF, 1227 CAROUGE – ENTRéE PAR LA COUR, HORAIRES 18:00 - 20:00
+    h3 VERNISSAGE JEUDI 7 MAI DèS 18:00
+  

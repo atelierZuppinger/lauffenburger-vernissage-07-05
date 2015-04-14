@@ -4,8 +4,8 @@ $ = require 'jquery-browserify'
 Cookies = require 'cookies-js'
 serialize = require 'form-serialize'
 
-adress = 'info@lauffenburger-photogallery.ch'
-#adress = 'yassin@atelier-zuppinger.ch'
+#adress = 'info@lauffenburger-photogallery.ch'
+adress = 'yassin@atelier-zuppinger.ch'
 
 $ () ->
   $('.rsvp')
@@ -14,27 +14,33 @@ $ () ->
     .on 'mouseout', () ->
       $('button').removeClass('hover')
     .on 'click', displayForm
-  $('.close')
-    .on('click', hideForm)
+  $('.close').on 'click', () ->
+    hideForm(true)
   $('form').submit (event) ->
-    event.preventDefault()
-    attend(event.target)
+    # send via ajax or use default process
+    if (typeof Object.create == 'function' && !$.browser.msie)
+      datas = serialize(event.target, { hash: true})
+      if datas
+        attend(datas)
+        event.preventDefault()
 
 displayForm = () -> 
   $('body').addClass 'displayForm'
   $('#left button, #right button').addClass('clicked')
   
-hideForm = () ->
+hideForm = (cancel) ->
   $('body').removeClass 'displayForm'
-  $('body').addClass 'thanks'
-attend = (form) ->
+  if !cancel
+    $('body').addClass 'thanks'
+  else
+    $('#left button, #right button').removeClass('clicked')
+
+attend = (datas) ->
   if !Cookies('sent')
     #console.log 'Envoi'
-    datas = serialize(form, { hash: true})
-    datas._subject = 'Réponse à l\'invitation'
     $.ajax({
       url: "//formspree.io/" + adress,
-      type: "POST"
+      method: "POST"
       data: datas
       dataType: "json"
       success: () ->
